@@ -1,8 +1,5 @@
-# react-cmis-browser
-Cmis browser written on javascript with ReactJS, Reflux, CmisJS, Gulp
-
-### Setup
-Please enter your Cmis server, username and password in config.json.js file
+# r. posts viewer
+Written with ReactJS
 
 ### Run
 To build and run on gulp-webserver please enter:
