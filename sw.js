@@ -110,8 +110,8 @@
             caches.open(cacheNameStatic)
                 .then(function (cache) {
                     return cache.addAll([
-                        "./",
-                        "./dist/local/build.js"
+                        "/r-post-viewer/",
+                        "/r-post-viewer/dist/local/build.js"
                     ]);
                 })
         );

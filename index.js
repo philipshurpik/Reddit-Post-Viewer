@@ -21,8 +21,8 @@ Router.run(routes, function (Handler) {
 
 // Register our ServiceWorker
 if (navigator.serviceWorker) {
-    navigator.serviceWorker.register("./sw.js", {
-        scope: "/reddit-viewer/"
+    navigator.serviceWorker.register("/r-post-viewer/sw.js", {
+        scope: "/r-post-viewer/"
     }).then(function (reg) {
         console.log("SW register success", reg);
     }, function (err) {
