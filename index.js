@@ -3,11 +3,15 @@ var Router = require('react-router');
 var { Route, DefaultRoute, RouteHandler, Link } = Router;
 var MainPage = require('./src/Main/MainPage.js');
 var SectionPage = require('./src/Section/SectionPage.js');
+var PostPage = require('./src/Post/PostPage.js');
 
 var routes = (
-    <Route handler={MainPage}>
+    <Route handler={MainPage} path="/">
+        <Route name="section" path="/:subreddit" handler={SectionPage}/>
+        <Route name="sectionType" path="/:subreddit/t/:type" handler={SectionPage}/>
+        <Route name="type" path="/t/:type" handler={SectionPage}/>
+        <Route name="post" path="/comments/:subreddit/:postId" handler={PostPage}/>
         <DefaultRoute handler={SectionPage}/>
-        <Route name="section" handler={SectionPage}/>
     </Route>
 );
 
