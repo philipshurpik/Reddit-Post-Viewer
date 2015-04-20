@@ -2,6 +2,7 @@ var React = require('react');
 var Reflux = require('reflux');
 var Router = require('react-router');
 var { Route, RouteHandler, Link } = Router;
+var NavBar = require('../Main/NavBar');
 var actions = require('../actions');
 var postStore = require('./postStore');
 
@@ -25,13 +26,10 @@ var PostPage = React.createClass({
     },
     render: function () {
         return <div className="postPage">
-            <div>
-                Navigation bar
-            </div>
+            <NavBar subreddit={this.state.post.subreddit}/>
             <div>
                 <div>{this.state.post.title}</div>
             </div>
-            <div>Tab bar</div>
         </div>;
     }
 });

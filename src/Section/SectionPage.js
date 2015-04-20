@@ -3,6 +3,7 @@ var Reflux = require('reflux');
 var Router = require('react-router');
 var { Route, RouteHandler, Link } = Router;
 var PostsList = require('./PostsList');
+var NavBar = require('../Main/NavBar');
 var actions = require('../actions');
 var sectionStore = require('./sectionStore');
 
@@ -25,14 +26,8 @@ var SectionPage = React.createClass({
         this.setState(state);
     },
     render: function () {
-        var link = (this.state.subreddit ? ("/#/" + this.state.subreddit + "/t/") : "/#/t/");
         return <div className="sectionPage">
-            <div>
-                <a href={link + "hot"}>Hot</a>
-                <a href={link + "new"}>New</a>
-                <a href={link + "top"}>Top</a>
-                <a href={link + "controversial"}>Controversial</a>
-            </div>
+            <NavBar subreddit={this.state.subreddit}/>
             <div>
                 <PostsList items={this.state.items} />
             </div>
