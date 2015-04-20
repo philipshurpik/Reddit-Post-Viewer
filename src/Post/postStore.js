@@ -1,5 +1,4 @@
 var Reflux = require('reflux');
-var reddit = require('reddit.js') && window.reddit;
 var actions = require('../actions');
 
 var sectionStore = Reflux.createStore({
