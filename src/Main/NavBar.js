@@ -7,7 +7,7 @@ var NavBar = React.createClass({
         router: React.PropTypes.func
     },
     render: function () {
-        var link = (this.props.subreddit ? ("/#/" + this.props.subreddit + "/t/") : "/#/t/");
+        var link = (this.props.subreddit ? ("#/" + this.props.subreddit + "/t/") : "/#/t/");
         return <Navbar brand='Reddit reader'>
             <Nav bsStyle='pills' activeKey={1}>
                 <NavItem eventKey={1} href={link + "hot"}>Hot</NavItem>
