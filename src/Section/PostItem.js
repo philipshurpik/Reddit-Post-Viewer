@@ -1,5 +1,7 @@
 var React = require('react');
 var actions = require('../actions');
+var Bootstrap = require('react-bootstrap');
+var { ListGroup, ListGroupItem, Row, Col } = Bootstrap;
 
 var PostItem = React.createClass({
     contextTypes: {
@@ -11,15 +13,29 @@ var PostItem = React.createClass({
         }
     },
     render: function () {
-        return (<div>
-            <img src={this.props.post.thumbnail} />
-            <a onClick={this.handleItemClick} href="" className="reddit-post-name">{this.props.post.title}</a><br/>
-            <span className="reddit-post-author">{this.props.post.author}</span> |
-            <span className="reddit-post-date">{this.state.created}</span> |
-            <span className="reddit-post-comments">{this.props.post.num_comments}</span> |
-            <span className="reddit-post-score">{this.props.post.score}</span>
-            <p></p>
-        </div>);
+        return (
+        <ListGroup>
+            <ListGroupItem>
+                <Row>
+                    <Col xs={2}>
+                        <img src={this.props.post.thumbnail} />
+                    </Col>
+                    <Col xs={10}>
+                        <ListGroup>
+                            <ListGroupItem><a onClick={this.handleItemClick} href="" className="reddit-post-name">{this.props.post.title}</a></ListGroupItem>
+                            <ListGroupItem>
+                                Author: {this.props.post.author}&nbsp;
+                                Date: {this.state.created}
+                            </ListGroupItem>
+                            <ListGroupItem>
+                                Comments: {this.props.post.num_comments}&nbsp;
+                                Score: {this.props.post.score}
+                            </ListGroupItem>
+                        </ListGroup>
+                    </Col>
+                </Row>
+            </ListGroupItem>
+        </ListGroup>);
     },
     handleItemClick: function(evt) {
         evt.preventDefault();
