@@ -18,3 +18,14 @@ var routes = (
 Router.run(routes, function (Handler) {
     React.render(<Handler/>, document.getElementById('body'));
 });
+
+// Register our ServiceWorker
+if (navigator.serviceWorker) {
+    navigator.serviceWorker.register("./sw.js", {
+        scope: "/reddit-viewer/"
+    }).then(function (reg) {
+        console.log("SW register success", reg);
+    }, function (err) {
+        console.log("SW register fail", err);
+    });
+}
