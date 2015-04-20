@@ -13,6 +13,7 @@ var path = {
     HTML: ['./index.html'],
     CSS: './src/**/*.css',
     FONTS: ['./src/lib/fonts/**.*'],
+    DEBUG_OUT: 'build.js',
     MINIFIED_OUT: 'build.min.js',
     OUT: 'build.js',
     DEST_BUILD: 'dist/build',
@@ -30,6 +31,9 @@ gulp.task('copyReplaceBuild', function() {
 
 gulp.task('html', function() {
     return gulp.src(path.HTML)
+        .pipe(htmlreplace({
+            'js': path.DEBUG_OUT
+        }))
         .pipe(gulp.dest(path.DEST_LOCAL));
 });
 
