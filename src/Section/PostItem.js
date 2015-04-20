@@ -13,12 +13,14 @@ var PostItem = React.createClass({
         }
     },
     render: function () {
+        var src = this.props.post.thumbnail;
+        src = (window.location.protocol === "https:" ? src.replace("http:", "https:") : src);
         return (
         <ListGroup>
             <ListGroupItem>
                 <Row>
                     <Col xs={2}>
-                        <img src={this.props.post.thumbnail} />
+                        <img src={src} />
                     </Col>
                     <Col xs={10}>
                         <ListGroup>
